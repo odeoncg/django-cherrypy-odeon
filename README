@@ -4,7 +4,7 @@ Installation:
 - add wsgiserver/ from the cherrypy project in your python path. The bundled version was patched to ignore malformed HTTP headers and to optionally output the served path to mimic devserver's behavior, so it's recommended over the upstream version.
 - add django_cherrypy_odeon to INSTALLED_APPS in your settings.py
 
-Usage:
+Usage info:
 - "./manage.py runcpserver help" - for the production server
 - "./manage.py runserver_cp help" - for the development server
 
