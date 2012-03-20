@@ -217,6 +217,7 @@ def runcpserver(*args):
         else:
             become_daemon()
 
+    # write the pidfile
     fp = open(options['pidfile'], 'w')
     fp.write("%d\n" % os.getpid())
     fp.close()
