@@ -206,20 +206,20 @@ def runcpserver(*args):
         stop_server(options['pidfile'])
         return True
     
-    if options['daemonize'] == '1':
-        if not options['pidfile']:
-            options['pidfile'] = '/var/run/cpserver_%s.pid' % options['port']
-        stop_server(options['pidfile'])     
+    if not options['pidfile']:
+        options['pidfile'] = '/var/run/cpserver_%s.pid' % options['port']
+    stop_server(options['pidfile'])     
        
+    if options['daemonize'] == '1':
         from django.utils.daemonize import become_daemon
         if options['workdir']:
             become_daemon(our_home_dir=options['workdir'])
         else:
             become_daemon()
 
-        fp = open(options['pidfile'], 'w')
-        fp.write("%d\n" % os.getpid())
-        fp.close()
+    fp = open(options['pidfile'], 'w')
+    fp.write("%d\n" % os.getpid())
+    fp.close()
     
     # Start the webserver
     start_server(options)
