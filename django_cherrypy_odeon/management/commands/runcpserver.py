@@ -208,7 +208,7 @@ def runcpserver(*args):
     
     if not options['pidfile']:
         options['pidfile'] = '/var/run/django/cpserver_%s.pid' % options['port']
-    stop_server(options['pidfile'])     
+    #stop_server(options['pidfile'])
        
     if options['daemonize'] == '1':
         from django.utils.daemonize import become_daemon
